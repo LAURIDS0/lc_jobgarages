@@ -880,7 +880,7 @@ Some slots are handled separately by `appearance`, `lights`, or `performance` an
 
 ## 26. Unknown vehicle mod slots
 
-The `/testvehiclemods` command scans mod slots `0-49` on the current vehicle.
+The `/creategaragecar` command scans mod slots `0-49` on the current vehicle.
 
 If a slot does not have a known readable name, the generator can output a generic name such as:
 
@@ -898,9 +898,9 @@ This is useful when an addon vehicle uses a non-standard slot.
 
 ---
 
-## 27. The `/testvehiclemods` command
+## 27. The `/creategaragecar` command
 
-`/testvehiclemods` is the recommended way to generate a vehicle configuration from a vehicle that is already set up in-game.
+`/creategaragecar` is the recommended way to generate a vehicle configuration from a vehicle that is already set up in-game.
 
 ### How to use it
 
@@ -908,7 +908,7 @@ This is useful when an addon vehicle uses a non-standard slot.
 2. Run:
 
 ```text
-/testvehiclemods
+/creategaragecar
 ```
 
 3. Fill in the `ox_lib` input dialog:
@@ -928,7 +928,7 @@ The generator reads the current vehicle's actual properties instead of making yo
 
 ---
 
-## 28. What `/testvehiclemods` generates
+## 28. What `/creategaragecar` generates
 
 The generated configuration contains:
 
@@ -1244,7 +1244,7 @@ The easiest workflow is:
 5. Run:
 
 ```text
-/testvehiclemods
+/creategaragecar
 ```
 
 6. Enter the label, spawncode, minimum grade, and plate prefix.
@@ -1265,9 +1265,9 @@ This avoids manually guessing most appearance and mod values.
 - `label` and `model` are required for every vehicle.
 - All other vehicle sections are optional.
 - Inventory item names must exist in `ox_inventory`.
-- Mod values are vehicle-specific. Use `/testvehiclemods` on the exact vehicle you are configuring.
+- Mod values are vehicle-specific. Use `/creategaragecar` on the exact vehicle you are configuring.
 - Do not assume that the same mod index exists on every addon vehicle.
-- `/testvehiclemods` scans mod slots `0-49` on the current vehicle and reports available ranges for discovered slots.
+- `/creategaragecar` scans mod slots `0-49` on the current vehicle and reports available ranges for discovered slots.
 - Garage debug visualization is controlled by `Config.Debug` in `config/config.lua`.
 
 ---
