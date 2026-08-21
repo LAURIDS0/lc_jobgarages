@@ -1,6 +1,4 @@
-# LC Garages - Job Garage Documentation
-
-This document explains how to configure the **job garage system** in `lc_garages`.
+# LC Jobgarages
 
 The job garage configuration is intentionally split into two levels:
 
@@ -36,7 +34,7 @@ config/
 
 ---
 
-# 1. `config/jobgarages.lua`
+## 1. `config/jobgarages.lua`
 
 This file describes **where the garage is, who can use the garage, whether it has a blip, and where vehicles spawn**.
 
@@ -78,7 +76,7 @@ Config.JobGarages = {
 }
 ```
 
-## Required garage fields
+### Required garage fields
 
 These are required:
 
@@ -93,7 +91,7 @@ spawnPoints
 
 ---
 
-# 2. Garage `label`
+## 2. Garage `label`
 
 ```lua
 label = 'Los Santos Police Garage'
@@ -105,7 +103,7 @@ The text displayed for the garage.
 
 ---
 
-# 3. Garage `jobs`
+## 3. Garage `jobs`
 
 ```lua
 jobs = {
@@ -143,7 +141,7 @@ You can add multiple jobs to the same garage.
 
 ---
 
-# 4. Garage `blip`
+## 4. Garage `blip`
 
 ```lua
 blip = {
@@ -159,7 +157,7 @@ blip = {
 
 If `blip` is omitted, the garage does not create a blip.
 
-## `blip.enabled`
+### `blip.enabled`
 
 ```lua
 enabled = true
@@ -170,7 +168,7 @@ enabled = true
 - `true` = create the blip.
 - `false` = do not create the blip.
 
-## `blip.sprite`
+### `blip.sprite`
 
 ```lua
 sprite = 357
@@ -180,7 +178,7 @@ sprite = 357
 
 The GTA blip sprite ID.
 
-## `blip.color`
+### `blip.color`
 
 ```lua
 color = 38
@@ -190,7 +188,7 @@ color = 38
 
 The GTA blip color ID.
 
-## `blip.scale`
+### `blip.scale`
 
 ```lua
 scale = 0.8
@@ -200,7 +198,7 @@ scale = 0.8
 
 Blip scale.
 
-## `blip.shortRange`
+### `blip.shortRange`
 
 ```lua
 shortRange = true
@@ -212,7 +210,7 @@ Controls whether the blip is short range.
 
 ---
 
-# 5. Garage `zone`
+## 5. Garage `zone`
 
 ```lua
 zone = {
@@ -226,7 +224,7 @@ zone = {
 
 The garage uses an `ox_lib` box zone.
 
-## `zone.coords`
+### `zone.coords`
 
 ```lua
 coords = vec3(432.95, -974.71, 21.95)
@@ -236,7 +234,7 @@ coords = vec3(432.95, -974.71, 21.95)
 
 The center of the box zone.
 
-## `zone.size`
+### `zone.size`
 
 ```lua
 size = vec3(31.0, 17.0, 3.0)
@@ -246,7 +244,7 @@ size = vec3(31.0, 17.0, 3.0)
 
 The size of the box zone.
 
-## `zone.rotation`
+### `zone.rotation`
 
 ```lua
 rotation = 90.0
@@ -258,7 +256,7 @@ The rotation of the box zone.
 
 ---
 
-# 6. Garage `spawnPoints`
+## 6. Garage `spawnPoints`
 
 ```lua
 spawnPoints = {
@@ -284,7 +282,7 @@ If every spawn point is occupied, the vehicle will not spawn.
 
 ---
 
-# 7. Vehicle configuration files
+## 7. Vehicle configuration files
 
 Each garage has its own vehicle folder.
 
@@ -338,7 +336,7 @@ config/police_ls/
 
 ---
 
-# 8. Vehicle base configuration
+## 8. Vehicle base configuration
 
 A vehicle file can start like this:
 
@@ -351,7 +349,7 @@ Config.JobVehicles['police_ls']['tstudio_polcypher'] = {
 }
 ```
 
-## Required vehicle fields
+### Required vehicle fields
 
 These are required:
 
@@ -364,7 +362,7 @@ Everything else described below is optional.
 
 ---
 
-# 9. Vehicle `label`
+## 9. Vehicle `label`
 
 ```lua
 label = 'Commissioner Cypher'
@@ -376,7 +374,7 @@ This is the name shown in the `ox_lib` vehicle selection menu.
 
 ---
 
-# 10. Vehicle `model`
+## 10. Vehicle `model`
 
 ```lua
 model = 'tstudio_polcypher'
@@ -388,7 +386,7 @@ This is the vehicle spawn code/model name.
 
 ---
 
-# 11. Vehicle `access`
+## 11. Vehicle `access`
 
 ```lua
 access = {
@@ -400,7 +398,7 @@ access = {
 
 If `access` is omitted, every grade that can enter the garage can use the vehicle.
 
-## `access.minGrade`
+### `access.minGrade`
 
 ```lua
 minGrade = 3
@@ -422,7 +420,7 @@ Grades `0-3` cannot use the vehicle.
 
 Grade `4+` can use it.
 
-## `access.maxGrade`
+### `access.maxGrade`
 
 ```lua
 access = {
@@ -439,7 +437,7 @@ The example allows grades `2`, `3`, and `4`.
 
 ---
 
-# 12. Vehicle `plate`
+## 12. Vehicle `plate`
 
 ```lua
 plate = {
@@ -452,7 +450,7 @@ plate = {
 
 If omitted, the normal random plate generator is used.
 
-## `plate.type`
+### `plate.type`
 
 Supported values:
 
@@ -489,7 +487,7 @@ plate = {
 
 Uses the normal random plate generator.
 
-## `plate.prefix`
+### `plate.prefix`
 
 ```lua
 prefix = 'POLICE'
@@ -499,7 +497,7 @@ prefix = 'POLICE'
 
 ---
 
-# 13. `appearance`
+## 13. `appearance`
 
 ```lua
 appearance = {
@@ -515,7 +513,7 @@ If omitted, no custom appearance settings are applied.
 
 ---
 
-# 14. `appearance.colors`
+## 14. `appearance.colors`
 
 ```lua
 colors = {
@@ -530,19 +528,19 @@ colors = {
 
 Each value is optional.
 
-## `primary`
+### `primary`
 
 Primary vehicle color ID.
 
-## `secondary`
+### `secondary`
 
 Secondary vehicle color ID.
 
-## `pearlescent`
+### `pearlescent`
 
 Pearlescent color ID.
 
-## `wheel`
+### `wheel`
 
 Wheel color ID.
 
@@ -550,7 +548,7 @@ A color value should come from the values supported by the vehicle/game setup yo
 
 ---
 
-# 15. `appearance.plateIndex`
+## 15. `appearance.plateIndex`
 
 ```lua
 plateIndex = 4
@@ -564,7 +562,7 @@ This is separate from the actual text of the plate.
 
 ---
 
-# 16. `appearance.livery`
+## 16. `appearance.livery`
 
 ```lua
 livery = {
@@ -577,7 +575,7 @@ livery = {
 
 The script supports both normal GTA livery handling and vehicles that expose livery through mod slot `48`.
 
-## `enabled`
+### `enabled`
 
 ```lua
 enabled = true
@@ -586,7 +584,7 @@ enabled = true
 - `true` = apply the configured livery.
 - `false` = do not apply the livery.
 
-## `index`
+### `index`
 
 ```lua
 index = 1
@@ -598,7 +596,7 @@ The correct index depends on the specific vehicle.
 
 ---
 
-# 17. `appearance.extras`
+## 17. `appearance.extras`
 
 ```lua
 extras = {
@@ -620,7 +618,7 @@ You do not have to define every extra.
 
 ---
 
-# 18. `appearance.windowTint`
+## 18. `appearance.windowTint`
 
 ```lua
 windowTint = 4
@@ -632,7 +630,7 @@ Vehicle window tint value.
 
 ---
 
-# 19. `appearance.wheels`
+## 19. `appearance.wheels`
 
 ```lua
 wheels = {
@@ -643,11 +641,11 @@ wheels = {
 
 **Required:** No
 
-## `wheels.type`
+### `wheels.type`
 
 Wheel type ID.
 
-## `wheels.color`
+### `wheels.color`
 
 Wheel color ID.
 
@@ -655,7 +653,7 @@ Both values are optional.
 
 ---
 
-# 20. `lights`
+## 20. `lights`
 
 ```lua
 lights = {
@@ -669,7 +667,7 @@ Contains configurable lighting.
 
 ---
 
-# 21. `lights.xenon`
+## 21. `lights.xenon`
 
 ```lua
 xenon = {
@@ -680,7 +678,7 @@ xenon = {
 
 **Required:** No
 
-## `enabled`
+### `enabled`
 
 ```lua
 enabled = true
@@ -688,7 +686,7 @@ enabled = true
 
 Enables/disables xenon.
 
-## `color`
+### `color`
 
 ```lua
 color = 255
@@ -698,7 +696,7 @@ Xenon light color ID.
 
 ---
 
-# 22. `lights.neon`
+## 22. `lights.neon`
 
 ```lua
 neon = {
@@ -721,7 +719,7 @@ neon = {
 
 **Required:** No
 
-## `neon.color`
+### `neon.color`
 
 RGB values:
 
@@ -735,7 +733,7 @@ color = {
 
 Each value is `0-255`.
 
-## `neon.sides`
+### `neon.sides`
 
 Controls each neon side independently:
 
@@ -752,7 +750,7 @@ All four fields are optional.
 
 ---
 
-# 23. `performance`
+## 23. `performance`
 
 ```lua
 performance = {
@@ -771,7 +769,7 @@ These are vehicle performance mod values.
 
 Every field is optional.
 
-## Supported performance fields
+### Supported performance fields
 
 ```text
 engine
@@ -788,7 +786,7 @@ turbo
 
 ---
 
-# 24. `mods`
+## 24. `mods`
 
 ```lua
 mods = {
@@ -819,7 +817,7 @@ A value of `-1` normally means the base/default option for a mod slot.
 
 ---
 
-# 25. Supported named mod slots
+## 25. Supported named mod slots
 
 The configuration uses readable names instead of raw GTA mod type numbers where the slot is known.
 
@@ -880,7 +878,7 @@ Some slots are handled separately by `appearance`, `lights`, or `performance` an
 
 ---
 
-# 26. Unknown vehicle mod slots
+## 26. Unknown vehicle mod slots
 
 The `/testvehiclemods` command scans mod slots `0-49` on the current vehicle.
 
@@ -900,11 +898,11 @@ This is useful when an addon vehicle uses a non-standard slot.
 
 ---
 
-# 27. The `/testvehiclemods` command
+## 27. The `/testvehiclemods` command
 
 `/testvehiclemods` is the recommended way to generate a vehicle configuration from a vehicle that is already set up in-game.
 
-## How to use it
+### How to use it
 
 1. Sit in the vehicle you want to configure.
 2. Run:
@@ -930,7 +928,7 @@ The generator reads the current vehicle's actual properties instead of making yo
 
 ---
 
-# 28. What `/testvehiclemods` generates
+## 28. What `/testvehiclemods` generates
 
 The generated configuration contains:
 
@@ -978,7 +976,7 @@ Do not add another `return { ... }` around the generated block if you are using 
 
 ---
 
-# 29. Why the generator is useful
+## 29. Why the generator is useful
 
 Vehicle addon creators can expose different combinations of:
 
@@ -1006,7 +1004,7 @@ This tells you which values are available for that specific vehicle.
 
 ---
 
-# 30. `inventory`
+## 30. `inventory`
 
 ```lua
 inventory = {
@@ -1032,7 +1030,7 @@ If `inventory` is omitted, the job garage does not add configured starter items.
 
 ---
 
-# 31. `inventory.glovebox`
+## 31. `inventory.glovebox`
 
 ```lua
 glovebox = {
@@ -1071,7 +1069,7 @@ glovebox = {
 
 ---
 
-# 32. `inventory.trunk`
+## 32. `inventory.trunk`
 
 ```lua
 trunk = {
@@ -1094,7 +1092,7 @@ This is useful for vehicles that do not have a usable trunk or for aircraft that
 
 ---
 
-# 33. Full generated vehicle example
+## 33. Full generated vehicle example
 
 A generated vehicle can look like this:
 
@@ -1218,7 +1216,7 @@ Config.JobVehicles['police_ls']['tstudio_polcypher'] = {
 
 ---
 
-# 34. Minimal vehicle example
+## 34. Minimal vehicle example
 
 You can also keep a vehicle very simple:
 
@@ -1235,7 +1233,7 @@ Everything except `label` and `model` is optional.
 
 ---
 
-# 35. Recommended workflow for adding a vehicle
+## 35. Recommended workflow for adding a vehicle
 
 The easiest workflow is:
 
@@ -1260,7 +1258,7 @@ This avoids manually guessing most appearance and mod values.
 
 ---
 
-# 36. Important notes
+## 36. Important notes
 
 - The garage ID and vehicle folder name must match.
 - The garage ID used in `Config.JobVehicles[...]` must match the garage ID in `Config.JobGarages`.
@@ -1274,7 +1272,7 @@ This avoids manually guessing most appearance and mod values.
 
 ---
 
-# 37. Debug mode
+## 37. Debug mode
 
 In `config/config.lua`:
 
@@ -1288,9 +1286,9 @@ Set it to `false` when you no longer need to debug the garage positions.
 
 ---
 
-# 38. Quick reference
+## 38. Quick reference
 
-## Garage
+### Garage
 
 ```text
 Required:
@@ -1303,7 +1301,7 @@ Optional:
 - blip
 ```
 
-## Vehicle
+### Vehicle
 
 ```text
 Required:
@@ -1320,7 +1318,7 @@ Optional:
 - inventory
 ```
 
-## Appearance
+### Appearance
 
 ```text
 Optional:
@@ -1332,7 +1330,7 @@ Optional:
 - wheels
 ```
 
-## Lights
+### Lights
 
 ```text
 Optional:
@@ -1340,7 +1338,7 @@ Optional:
 - neon
 ```
 
-## Performance
+### Performance
 
 ```text
 Optional:
@@ -1352,7 +1350,7 @@ Optional:
 - turbo
 ```
 
-## Inventory
+### Inventory
 
 ```text
 Optional:
@@ -1362,7 +1360,7 @@ Optional:
 
 ---
 
-# 39. Dependencies
+## 39. Dependencies
 
 The job garage system currently depends on:
 
