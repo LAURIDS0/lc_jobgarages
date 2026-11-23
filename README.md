@@ -1,9 +1,23 @@
 # LC Jobgarages
 
+Job garages for Qbox. Full documentation: [lc-development.com/docs](https://lc-development.com/docs/#/lc_jobgarages).
+
 The job garage configuration is intentionally split into two levels:
 
 - `config/jobgarages.lua` contains the **garage itself**.
 - Each garage has its own folder containing the **vehicle configuration files** for that garage.
+
+Every garage folder must also be listed in `shared_scripts` in `fxmanifest.lua`, before `config/jobgarages.lua`, or its vehicles are never loaded:
+
+```lua
+shared_scripts {
+    '@ox_lib/init.lua',
+    'config/config.lua',
+    'config/police_ls/*.lua',
+    -- one line per garage folder
+    'config/jobgarages.lua'
+}
+```
 
 The structure should look like this:
 
@@ -1251,7 +1265,7 @@ The easiest workflow is:
 7. Copy the generated configuration from F8.
 8. Paste it into the corresponding vehicle file.
 9. Add the vehicle file to the correct garage folder.
-10. Restart `lc_garages`.
+10. Restart `lc_jobgarages`.
 11. Test the vehicle from the job garage.
 
 This avoids manually guessing most appearance and mod values.
@@ -1372,4 +1386,4 @@ ox_inventory
 oxmysql
 ```
 
-Make sure these resources are started before `lc_garages`.
+Make sure these resources are started before `lc_jobgarages`.
